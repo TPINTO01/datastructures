@@ -1,0 +1,9 @@
+Doubly-linked list and use cases.
+
+Constant time access to first and last element - good for structures 
+designed to operate in LIFO/FIFO where elements are inserted and extracted 
+only from one end of the container.
+
+Worst-case 0(n) time access to non-end elements.
+
+Stack and Queue implementations using LinkedList.

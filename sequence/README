@@ -1,0 +1,73 @@
+Heap-allocated, expanding Sequence
+
+Constant time access to arbitrary element.  
+
+
+        /* Constructor 
+         *  - Sequence() - Default constructor, size is 0, cpacity is 0
+         *  - Sequence(int n, T init) - Constructs sequence of size n, all
+         *    elements initialized to init.
+         *  - Sequence(T elts[], int n) - Constructs sequence with a copy of
+         *    each of the elements in initArray in the same order. n is size
+         *    of initArray. */        
+        Sequence();
+        Sequence(int n);       
+        Sequence(int n,    T   init); 
+        Sequence(T elts[], int n);
+        Sequence(Sequence<T> &seq);
+
+        /* Destructpr */
+        ~Sequence();        
+
+        /* Capacity
+         *  - int size() returns number of elements in container
+         *  - int cap () returns size of allocated storage capacity, in 
+         *    terms of elements.
+         *  - bool isEmpty() true if container is empty (size == 0) 
+         *  - void reserve(int n) requests that capacity be at least enough 
+         *    to contain n elements. If n is greater than current capacity, 
+         *    causes container to reallocate its storage, increasing its 
+         *    capacity to n.
+         *    In all other cases, does not cause reallocation and capacity 
+         *    unaffected. */
+        int  size   ();
+        int  cap    ();
+        bool isEmpty();  
+        void reserve(int n);
+
+        /* Element access
+         *  - T &operator[] (int n) returns reference to element at index n.
+         *      * when n out of range, causes undefined behavior
+         *  - T &at (int n) is like operator[] but raises range error if n 
+         *    out of bounds.
+         *  - front, back return reference to first, last element in 
+         *    container. 
+         *      * when container empty, raises range error */
+        T &operator[] (int n);        
+        T &at         (int n);
+        T &front      ();
+        T &back       ();
+
+        /* Modifiers
+         *  - void clear() clears elements from container, does not change 
+         *    size of allocated storage capacity.
+         *  - void reset(T elt) sets all elements in container to elt. 
+         *  - void pushAtBack(T elt) adds new element to end of sequence.
+         *  - T popFromBack() removes last element in sequence, returns 
+         *    element.
+         *  - void insertAt(T elt, int n) inserts elt before the element
+         *    at index n All elements after (to right of index n) are 
+         *    shifted right by 1 .
+         *  - void removeAt(int n) removes element at index n. All elements
+         *    after (to right of index n) are shifted left by 1 
+         *  - void concat(Sequence<T> *seq) concateneates the elements in 
+         *    seq to the end of current container.*/
+        void clear      ();
+        void reset      (T elt);
+        void pushAtBack (T elt);
+        T    popFromBack();
+        void insertAt   (T elt, int n); 
+        T    removeAt   (int n);
+        void concat(Sequence<T> *seq);
+
+
